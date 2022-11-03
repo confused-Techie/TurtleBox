@@ -1,0 +1,74 @@
+The essential plan for this software:
+
+Lead in collecting or at least integrating with data from as many platforms as possible.
+Caching what's needed locally but Ideally just knowing how to talk to other services efficiently to gather this information.
+
+With that said, once there is a standard API and way to interact with this data at a large scale then comes the time to use it.
+
+Ideally through a series of settings that can be enabled or disabled add the different features sets.
+
+Likely this should be split up into so-called bundled packages, essentially local file-referenced dependencies.
+
+This could allow an easy to build feature set. But if this is the method taken, then there needs to be a way for these dependencies to gather data
+from the main process, without having to just be passed it. Likely meaning the creation of a global API that allows interaction with the data.
+
+But also this global API will need a way to write new data to it.
+
+-------------
+
+main.js
+  > Includes natively any and all methods it has to collect data from the outside world.
+  > Knows of feature sets, and can check for them being enabled, to then require, and call upon the relevant functions
+    of the specific dependency.
+> feature-packages:
+  > Are bundled packages, that provide new features, that can be called on by the main process.
+    But a concern is then how is this information displayed?
+    Likely this should be a key in the `package.json` that points to this features `pug` file, which could allow it then to
+
+-----------
+
+I think to properly find out how this global API should be structured, there needs to be a basis of what the feature-set plans to be for it.
+
+  ===
+
+The main.js module, can start off another module that starts an express server, for the frontend, and another different port and instance for the backend.
+
+Allowing them to be truly modular, then additionally will be the data collectors.
+
+Each data collector gets a namespaced entry to declare API endpoints onto.
+
+There also needs to be a way to query the collector of it's information from the code. This likely could be the automatic setup of a global collector API, that
+takes the instance of the code to allow it to be queried. But this will also have to help ensure it responds to the asker properly.
+
+And lastly each collector is able to specify it's cards, that will be shown onto the webpages themselves.
+
+---
+
+Features
+
+Then each feature is additionally a package, for now bundled but maybe that could be opened up, these features then can be intended to be used with certain datasets.
+
+Features are also able to declare cards for display.
+
+---
+
+Webpage Itself
+
+Then with all of this the webpage is able to take the cards of each item and display it as needed. Where it's intended that each card will be in charge of collecting it's own data from the global API.
+
+And then afterwards creating custom layouts should be pretty easy, to just take from all the cards.
+
+And then really each section of data that a collector exposes should have a card, and each section of data a feature exposes should also have a card.
+
+These cards then only need to be worked out to play super nicely with others, possibly self arranging like those of the Google Home Device. And an end user can simply say all the cards wanted on a screen
+and display that.
+
+=============
+
+All this said, biggest considerations:
+
+* backend declarative API - Allows easy Extension
+* frontend API - Allows easy addition of new templates
+* collector Global API to mount connectors to for easy global access
+* feature packages need to have some way to interact well, likely allowing them to be used soley on the frontend cards, but also for
+  background tasks
