@@ -1,4 +1,4 @@
-const main = require("./main.js");
+const main = require("./main-backend.js");
 
 let serve; // the main express instance
 

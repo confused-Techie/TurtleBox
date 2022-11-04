@@ -6,18 +6,22 @@ console.log("TurtleBox Core Starting up...");
 const config = require("./config.js");
 const utils = require("./utils/main.js");
 const Exterminate = require("./exterminate.js");
-//const frontend = require("./frontend/server.js");
+const Plugin = require("./plguin.js");
+const Feature = require("./feature-plugin.js");
+const frontend = require("./frontend/server.js");
 const backend = require("./backend/server.js");
 
 (async () => {
 
   let dalek = new Exterminate();
+  let plugin = new Plugin();
 
   turtle = {};
 
   turtle.config = config;
   turtle.utils = utils;
   turtle.collector = {};
+  turtle.feature = {};
   turtle.dalek = dalek;
 
   global.turtle = turtle;
@@ -27,9 +31,12 @@ const backend = require("./backend/server.js");
 
   backend.startup();
   // then add the closeable instance to exterminate
-  dalek.add(backend.shutdown);
+  turtle.dalek.add(backend.shutdown);
 
-  //frontend.startup();
+  frontend.startup();
+  turtle.dalek.add(frontend.shutdown);
+
+  await plugin.load();
 
 })();
 

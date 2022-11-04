@@ -1,0 +1,16 @@
+{
+  "name": "system-info",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/core.js",
+  "scripts": {
+    "start": "node ./src/core.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "confused-Techie",
+  "license": "MIT",
+  "dependencies": {
+  },
+  "turtleType": "feature"
+}

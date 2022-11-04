@@ -72,3 +72,27 @@ All this said, biggest considerations:
 * collector Global API to mount connectors to for easy global access
 * feature packages need to have some way to interact well, likely allowing them to be used soley on the frontend cards, but also for
   background tasks
+
+-------------
+
+
+It's pointless to draw lines around Features/Collectors
+
+Basically now theres Plugins.
+
+A plugin is loaded during system startup, when it starts up theres a few things it can do.
+
+Use the global API to register new HTTP endpoints on the backend, or frontend. As long as, of course they don't override existing ones.
+
+Additionally this plugin is now automatically added to the global API as `turtle.plugin["my-plugin-name"].func()`.
+
+Additionally the plugin can register it's cards with the frontend api, giving it the location to it's template files.
+Within which, should call the plugins functions as needed.
+
+Then lastly if the plugin needs to do anything on a timed basis, there should be the creation of `turtle.time` with events that plugins
+can listen to.
+
+Then of course other services can also spawn events as needed.
+
+But in this way, no custom pacakge.json setup needed, no fancy custom anything, just simple JS, with a global API. Works for everyone,
+and ideally can be extremely extensible.
