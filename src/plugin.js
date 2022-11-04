@@ -28,7 +28,10 @@ class Plugin {
   }
 
   add(pluginFolder) {
+    let temp_plugin = require(`../plugins${path.sep}${file}${path.sep}package.json`);
 
+    // Now to add it to the pluginList
+    this.pluginList[temp_plugin.name] =
   }
 
   remove(pluginName) {
