@@ -6,8 +6,7 @@ console.log("TurtleBox Core Starting up...");
 const config = require("./config.js");
 const utils = require("./utils/main.js");
 const Exterminate = require("./exterminate.js");
-const Plugin = require("./plguin.js");
-const Feature = require("./feature-plugin.js");
+const Plugin = require("./plugin.js");
 const frontend = require("./frontend/server.js");
 const backend = require("./backend/server.js");
 
@@ -20,23 +19,29 @@ const backend = require("./backend/server.js");
 
   turtle.config = config;
   turtle.utils = utils;
-  turtle.collector = {};
-  turtle.feature = {};
   turtle.dalek = dalek;
+  turtle.plugin = Plugin;
+  turtle.web = {
+    frontend: frontend,
+    backend: backend
+  };
 
   global.turtle = turtle;
 
-  turtle.utils.log.debugLog("Success?");
+  turtle.utils.log.debugLog("Global API Attached to Context...");
   // Now startup the two API Servers
 
-  backend.startup();
+  turtle.web.backend.startup();
   // then add the closeable instance to exterminate
-  turtle.dalek.add(backend.shutdown);
+  turtle.dalek.add(turtle.web.backend.shutdown);
 
-  frontend.startup();
-  turtle.dalek.add(frontend.shutdown);
+  turtle.web.frontend.startup();
+  turtle.dalek.add(turtle.web.frontend.shutdown);
 
   await plugin.load();
+
+  // Finish setting up utilities
+  turtle.utils.finish();
 
 })();
 

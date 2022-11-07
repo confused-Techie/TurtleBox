@@ -6,9 +6,11 @@ const backend = {
 const frontend = {
   port: "8081"
 };
+const refreshTime = 1500;
 
 module.exports = {
   debug,
   backend,
   frontend,
+  refreshTime,
 };
