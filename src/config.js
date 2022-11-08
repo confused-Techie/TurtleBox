@@ -63,6 +63,7 @@ function concatConfig() {
 
   configuration.backend = {};
   configuration.frontend = {};
+  configuration.plugins = dynamicConfig.plugins;
 
   configuration.debug = staticConfig.debug;
   configuration.watch_config = staticConfig.watch_config;

@@ -6,13 +6,28 @@
         "id": 1,
         "contents": {
           "cards": [
-            "system-info.default"
+            "system-info.default",
+            "powerschool-staff-lists.default"
+          ]
+        }
+      },
+      {
+        "name": "Powerschool",
+        "id": 2,
+        "contents": {
+          "cards": [
+            "powerschool-staff-lists.page_view"
           ]
         }
       }
     ]
   },
   "backend": {
-    
+
+  },
+  "plugins": {
+    "powerschool": {
+
+    }
   }
 }
