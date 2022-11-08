@@ -20,7 +20,7 @@ const backend = require("./backend/server.js");
   turtle.config = config;
   turtle.utils = utils;
   turtle.dalek = dalek;
-  turtle.plugin = Plugin;
+  turtle.plugin = plugin;
   turtle.web = {
     frontend: frontend,
     backend: backend
@@ -38,7 +38,7 @@ const backend = require("./backend/server.js");
   turtle.web.frontend.startup();
   turtle.dalek.add(turtle.web.frontend.shutdown);
 
-  await plugin.load();
+  await turtle.plugin.load();
 
   // Finish setting up utilities
   turtle.utils.finish();

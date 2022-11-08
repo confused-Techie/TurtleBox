@@ -11,7 +11,7 @@
   "author": "confused-Techie",
   "license": "MIT",
   "dependencies": {
-    "daisyui": "^2.38.1",
+    "bootstrap": "^5.2.2",
     "ejs": "^3.1.8",
     "express": "^4.18.2"
   }

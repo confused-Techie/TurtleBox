@@ -1,0 +1,20 @@
+/*
+tailwind/
+  src/
+    index.d.ts
+    index.js
+    index.test.js
+    styles.js
+    utils.js
+
+bootstrap/
+  bootstrap.min.css
+
+daisyui/
+  full.css
+
+Both tailwind and daisyui have been temporarily uninstalled.
+  * @tailwindcss/typography
+  * daisyui
+*/
+@import "/bootstrap/css/bootstrap.min.css";

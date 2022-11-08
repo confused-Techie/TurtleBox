@@ -1,40 +1,28 @@
-<!DOCTYPE html>
-<html lang="en-US">
-<head>
-  <title><%=page.title%></title>
-  <link rel="stylesheet" type="text/css" href="/css/daisyui.css">
-</head>
-<body>
+<%- include("header"); -%>
 
-  <div class="drawer">
-  <input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
-  <div class="drawer-content flex flex-col">
-    <!-- Navbar -->
-    <div class="w-full navbar bg-base-300">
-      <div class="flex-none lg:hidden">
-        <label for="my-drawer-3" class="btn btn-square btn-ghost">
-          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-6 h-6 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
-        </label>
+  <div class="container text-center">
+    <div class="row row-cols-2">
+      <div class="col">
+
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Welcome to TurtleBox!</h5>
+            <p class="card-text">The digital InfoBuffet awaits...</p>
+            <div class="d-grid gap-2">
+              <a href="#" class="btn btn-primary" type="button">Get Started</a>
+              <a href="#" class="btn btn-secondary" type="button">Read the Docs</a>
+            </div>
+          </div>
+        </div>
+
       </div>
-      <div class="flex-1 px-2 mx-2">Navbar Title</div>
-      <div class="flex-none hidden lg:block">
-        <ul class="menu menu-horizontal">
-          <!-- Navbar menu content here -->
-          <li><a>Navbar Item 1</a></li>
-          <li><a>Navbar Item 2</a></li>
-        </ul>
-      </div>
+
     </div>
-    <!-- Page content here -->
-    Content
   </div>
-</div>
 
-  <% if (turtle.config.debug) { %>
-    <h2><%=turtle.config.refreshTime%></h2>
-  <% } %>
-  <h2>Helo world</h2>
+<% if (turtle.config.debug) { %>
+  <h2><%=turtle.config.refreshTime%></h2>
+<% } %>
+<h2>Helo world</h2>
 
-
-</body>
-</html>
+<%- include("footer"); -%>

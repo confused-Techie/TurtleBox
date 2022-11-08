@@ -1,0 +1,52 @@
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">System Information</h5>
+
+    <div class="container text-center">
+      <div class="row align-items-start">
+        <div class="col">
+
+          <div class="card">
+            <div class="card-body">
+              <h6 class="card-title">Uptime</h6>
+              <p><%=turtle.plugin.carry("system-info").getUpTime()%> seconds. </p>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+
+          <div class="card">
+            <div class="card-body">
+              <h6 class="card-title">Host Name</h6>
+              <p><%=turtle.plugin.carry("system-info").getHostName()%></p>
+            </div>
+          </div>
+
+        </div>
+        <div class="col">
+
+          <div class="card">
+            <div class="card-body">
+              <h6 class="card-title">Version</h6>
+              <p><%=turtle.plugin.carry("system-info").getVersion()%></p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <p class="fs-5">Memory Usage</p>
+      <div class="progress">
+        <div
+          class="progress-bar"
+          role="progressbar"
+          aria-label="Memory Used"
+          style="width: <%=turtle.plugin.carry("system-info").getMemoryPercentUsed()%>%"
+          aria-valuenow="<%turtle.plugin.carry("system-info").getMemoryPercentUsed()%>"
+          aria-valuemin="0"
+          aria-valuemax="100"><%=turtle.plugin.carry("system-info").getMemoryPercentUsed()%>%
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

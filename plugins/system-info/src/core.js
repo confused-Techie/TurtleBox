@@ -1,5 +1,29 @@
-console.log("A super simple plugin");
+const os = require("os");
 
-//turtle.utils.timer.on("refresh", function() {
-  //console.log(`This plugin is listening for refresh events: ${performance.now()}`);
-//});
+function getUpTime() {
+  return os.uptime(); // returns uptime in seconds
+}
+
+function getHostName() {
+  return os.hostname();
+}
+
+function getVersion() {
+  return os.version();
+}
+
+function getMemoryPercentUsed() {
+  let free = os.freemem();
+  let total = os.totalmem();
+  // Both measured in Bytes.
+
+  let percentUsed = Math.ceil(100 - ( (free * 100) / total));
+  return percentUsed;
+}
+
+module.exports = {
+  getUpTime,
+  getHostName,
+  getVersion,
+  getMemoryPercentUsed,
+};
