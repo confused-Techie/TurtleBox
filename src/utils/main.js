@@ -13,6 +13,9 @@ util.log = {
   },
   infoLog: (value) => {
     console.log(`INFO:: ${value}`);
+  },
+  errorLog: (value) => {
+    console.log(`ERROR:: ${value}`);
   }
 
 };
@@ -32,11 +35,16 @@ util.finish = () => {
     util.timer.emit("refresh");
   }, turtle.config.refreshTime);
 
+  const localRefreshTimeout = setInterval(() => {
+    util.timer.emit("local-refresh");
+  }, turtle.config.localRefresh);
+
   // Then we also have to make sure to add any timers to the dalek config
 
   const haltTimers = function() {
     console.log("Clearing Utility Timers...");
     clearInterval(refreshTimeout);
+    clearInterval(localRefreshTimeout);
   };
 
   turtle.dalek.add(haltTimers);

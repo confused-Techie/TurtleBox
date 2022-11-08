@@ -17,7 +17,7 @@ const backend = require("./backend/server.js");
 
   turtle = {};
 
-  turtle.config = config;
+  turtle.config = config.configuration;
   turtle.utils = utils;
   turtle.dalek = dalek;
   turtle.plugin = plugin;
@@ -42,6 +42,15 @@ const backend = require("./backend/server.js");
 
   // Finish setting up utilities
   turtle.utils.finish();
+
+  if (turtle.config.watch_config) {
+    // Now to setup timers for watching the config file.
+    turtle.utils.timer.on("local-refresh", function() {
+      config.getDynamicConfig();
+      config.concatConfig();
+    });
+  }
+
 
 })();
 

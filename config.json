@@ -1,0 +1,18 @@
+{
+  "frontend": {
+    "tabs": [
+      {
+        "name": "Andy's Panel",
+        "id": 1,
+        "contents": {
+          "cards": [
+            "system-info.default"
+          ]
+        }
+      }
+    ]
+  },
+  "backend": {
+    
+  }
+}
