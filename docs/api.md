@@ -50,3 +50,7 @@ Plugins are written as normal NodeJS Modules, that must be able to be required n
           // Refresh cache, external data, so on
         });
         ```
+    - `utils.file`:
+      - `file.write(name, data)`: Expects an Object or JSON data, to write directly to the filesystem, within the local storage of TurtleBox.
+      - `file.read(name)`: Will read back a parsed JSON copy of a file stored within TurtleBox's cache.
+      - `file.createCache()`: Should be run before any interaction with the TurtleBox cache, ensures that nothing has happened to the cache file.

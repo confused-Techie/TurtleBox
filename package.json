@@ -1,7 +1,7 @@
 {
   "name": "turtlebox",
   "version": "1.0.0",
-  "description": "",
+  "description": "TurtleBox - InfoBuffet for SysAdmins",
   "main": "src/core.js",
   "scripts": {
     "start": "node ./src/core.js",

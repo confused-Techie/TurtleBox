@@ -1,7 +1,7 @@
 {
   "name": "system-info",
   "version": "1.0.0",
-  "description": "",
+  "description": "View information about the system running TurtleBox.",
   "main": "src/core.js",
   "scripts": {
     "start": "node ./src/core.js",
