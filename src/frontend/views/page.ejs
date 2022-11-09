@@ -2,13 +2,12 @@
 
   <div class="container text-center">
     <div class="row row-cols-2">
-      <div class="col">
-
-        <% views.forEach((view) => { %>
-          <%- include(view); -%>
-        <% }); %>
-
-      </div>
+      <% views.forEach((view) => { %>
+        <div class="col">
+        <%- include(view); -%>
+        </div>
+      <% }); %>
+      
     </div>
   </div>
 

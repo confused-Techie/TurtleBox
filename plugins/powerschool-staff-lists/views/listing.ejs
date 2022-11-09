@@ -1,0 +1,24 @@
+
+<% turtle.plugin.carry("powerschool-staff-lists").manage().forEach(function(site){ %>
+
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title"><%=site.schoolName%></h5>
+    <h6 class="card-subtitle mb-2 text-muted">Staff: <%=site.count%></h6>
+
+    <ul class="list-group">
+      <% site.details.staffs.staff.forEach(function (user) { %>
+
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+          <%=user.name.first_name%> <%=user.name.last_name%>
+          <span class="badge bg-primary rounded-pill">
+            <%=user.emails.work_email%>
+          </span>
+      </li>
+
+      <% }); %>
+    </ul>
+  </div>
+</div>
+
+<% }); %>

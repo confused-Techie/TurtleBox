@@ -1,0 +1,11 @@
+
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">District Staff Count Summary</h5>
+
+    <% turtle.plugin.carry("powerschool-staff-lists").manage().forEach(function(site) { %>
+      <span><%=site.schoolName%> <span class="badge bg-primary"><%=site.count%></span></span>
+      <br />
+    <% }); %>
+  </div>
+</div>

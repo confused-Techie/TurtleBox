@@ -1,7 +1,44 @@
 // Collection of all utility functions throughout the application
 const { EventEmitter } = require("node:events");
+const fs = require("fs");
+const path = require("path");
 
 let util = {};
+
+util.file = {
+  createCache: async () => {
+    if (!fs.existsSync(path.join(__dirname, "../../.cache"))) {
+      try {
+        fs.mkdirSync(path.join(__dirname, "../../.cache"));
+        return true;
+      } catch(err) {
+        console.log(err);
+        return false;
+      }
+    } else {
+      // already exists
+      return true;
+    }
+  },
+  write: async (name, data) => {
+    try {
+      fs.writeFileSync(path.join(__dirname, `../../.cache/${name}`), JSON.stringify(data, null, 2));
+      return true;
+    } catch(err) {
+      console.log(err);
+      return false;
+    }
+  },
+  read: (name) => {
+    try {
+      let data = fs.readFileSync(path.join(__dirname, `../../.cache/${name}`));
+      return JSON.parse(data);
+    } catch(err) {
+      console.log(err);
+      return null;
+    }
+  }
+};
 
 // --- Logging Utils
 
